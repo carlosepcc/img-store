@@ -17,7 +17,7 @@ const { cart } = useCartStore()
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/">Products</RouterLink>
           <RouterLink class="left" to="/cart">My cart
-            <span class="badge">{{ cart.length }}</span>
+            <span class="badge" v-show="cart.length > 0">{{ cart.length }}</span>
           </RouterLink>
         </div>
       </nav>

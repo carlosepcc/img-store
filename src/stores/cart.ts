@@ -1,27 +1,19 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import type { Product } from "./product";
-export type CartItem = {
-  id: number;
+export interface CartItem extends Product {
   amount: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  }
 }
 
 export const useCartStore = defineStore("cart", () => {
-  const cart = ref<Product[]>([]);
+
+  const rawItems = ref<Product[]>([]);
+  const cart = computed(() => rawItems.value);
   function addItem(item: Product) {
-    cart.value.push(item);
+    rawItems.value.push(item)
   }
-  function removeItemByIndex(index) {
-    cart.value.splice(index, 1);
+  function removeItemByIndex(index: number) {
+    rawItems.value.splice(index, 1);
   }
 
   function removeItem(item: Product) {
@@ -31,13 +23,13 @@ export const useCartStore = defineStore("cart", () => {
     }
   }
 
-
-  const total = computed(() => {
+  function calculateTotal() {
     let total = 0
-    cart.value.forEach(item => {
+    rawItems.value.forEach(item => {
       total += item.price
     });
     return total
-  })
-  return { cart,total, addItem, removeItemByIndex, removeItem };
+  }
+  const total = computed(() => calculateTotal())
+  return { cart, total, addItem, removeItemByIndex, removeItem };
 });

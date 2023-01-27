@@ -1,6 +1,6 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
-export type Product = {
+export interface Product {
   id: number;
   title: string;
   price: number;

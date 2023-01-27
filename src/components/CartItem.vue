@@ -1,13 +1,13 @@
 <template>
   <div class="product">
+    <div>
+      <img :src="item.image" />
+      <span>{{ item.title }}</span>
+    </div>
     <button class="remove" @click="cartStore.removeItem(item)">
       <!-- Remove from the cart  -->
       &times;
     </button>
-    <img :src="item.image" />
-    <p />
-    <h6>{{ item.title }}</h6>
-
   </div>
 </template>
 
@@ -21,11 +21,16 @@ const props = defineProps<{ item: Product }>()
 <style scoped>
 .product {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: space-between;
   background: #fff;
   padding: 16px;
   border-radius: 8px;
   width: 100%;
+}
+
+.product>div:first-child {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .product:hover {

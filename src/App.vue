@@ -8,15 +8,18 @@ const { cart } = useCartStore()
 <template>
   <header>
     <div class="wrapper">
-      <RouterLink to="/about">About</RouterLink>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
-      <HelloWorld msg="IMG Store" />
-
       <nav>
-        <RouterLink to="/">Products</RouterLink>
-        <RouterLink class="left" to="/cart">My cart
-          <span class="badge">{{ cart.length }}</span>
-        </RouterLink>
+        <div style="display:flex;align-items:baseline;column-gap:16px">
+          <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
+          <h1>IMG Store</h1>
+        </div>
+        <div>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/">Products</RouterLink>
+          <RouterLink class="left" to="/cart">My cart
+            <span class="badge">{{ cart.length }}</span>
+          </RouterLink>
+        </div>
       </nav>
     </div>
   </header>
@@ -26,7 +29,15 @@ const { cart } = useCartStore()
 <style>
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  column-gap: 32px;
+  height: 28px;
+  margin-bottom: 50px;
+
+}
+
+nav>div {
+  display: flex;
   column-gap: 32px;
 }
 

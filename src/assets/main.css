@@ -3,6 +3,7 @@
 .main-wrapper {
   text-align: center;
 }
+.flex{display: flex;}
 
 #app {
   max-width: 1280px;

@@ -7,7 +7,7 @@ const { cart, total } = useCartStore()
 <template>
   <main class="main-wrapper">
     <h3>My <span v-if="cart.length === 0">empty</span> cart</h3>
-    <h5>$ {{ total }}</h5>
+    <h5><span>{{ cart.length }} artículos por </span>$ {{ total }}</h5>
     <CartList />
   </main>
 </template>

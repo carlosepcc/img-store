@@ -22,7 +22,9 @@ export const useCartStore = defineStore("cart", () => {
       removeItemByIndex(indexFound)
     }
   }
-
+  function pay() {
+    rawItems.value = [];
+  }
   function calculateTotal() {
     let total = 0
     rawItems.value.forEach(item => {
@@ -31,5 +33,5 @@ export const useCartStore = defineStore("cart", () => {
     return total
   }
   const total = computed(() => calculateTotal())
-  return { cart, total, addItem, removeItemByIndex, removeItem };
+  return { pay, cart: rawItems, total, addItem, removeItemByIndex, removeItem };
 });

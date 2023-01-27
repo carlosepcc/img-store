@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
 import { useCartStore } from "./stores/cart";
-const { cart } = useCartStore()
+const cartStore = useCartStore()
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const { cart } = useCartStore()
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/">Products</RouterLink>
           <RouterLink class="left" to="/cart">My cart
-            <span class="badge" v-show="cart.length > 0">{{ cart.length }}</span>
+            <span class="badge" v-show="cartStore.cart.length > 0">{{ cartStore.cart.length }}</span>
           </RouterLink>
         </div>
       </nav>

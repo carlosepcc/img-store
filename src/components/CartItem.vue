@@ -3,11 +3,15 @@
     <div>
       <img :src="item.image" />
       <span>{{ item.title }}</span>
+      <small>$ {{ item.price }}</small>
     </div>
-    <button class="remove" @click="cartStore.removeItem(item)">
-      <!-- Remove from the cart  -->
-      &times;
-    </button>
+    <div>
+      <button class="remove" @click="cartStore.removeItem(item)">
+        <!-- Remove from the cart  -->
+        &times;
+      </button>
+
+    </div>
   </div>
 </template>
 
@@ -31,6 +35,10 @@ const props = defineProps<{ item: Product }>()
 .product>div:first-child {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.product>div>small {
+  margin-left: 32px
 }
 
 .product:hover {

@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import ProductsList from "../components/ProductsList.vue";
+
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="main-wrapper">
+    <h3>Our products</h3>
+    <ProductsList />
   </main>
 </template>
+<style scoped>
+
+</style>

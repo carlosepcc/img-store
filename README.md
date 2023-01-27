@@ -44,3 +44,39 @@ pnpm build
 ```sh
 pnpm lint
 ```
+
+## Proyecto de prueba de VueJS
+
+### Descripción:
+
+Desarrollar una tienda simple en Vue3 con composition API
+(preferentemente script setup) con las siguientes características.
+
+1. Listado de productos
+
+Cada producto debe tener un nombre, id, imagen y precio
+
+2. Posibilidad de añadir a un carrito de compras
+
+3. Acceso al carrito a ver los productos agregados mostrando cantidades y
+montos totales
+
+4. Posibilidad de eliminar elementos del carrito
+
+### Tecnologías a emplear:
+
+-   Hacer uso de Vue Router y Vuex
+
+-   No usar frameworks como Vuetify, ElemenUI y similares
+
+-   Libertad total a nivel de UI, posibilidad de usar Tailwind u otro
+    framework (solo CSS) si lo creen necesario.
+
+-   Para mostrar los productos usar objetos JSON propios o (lo siguiente
+    se considera un plus pero no es requerido), utilizar una api como
+    [[https://fakestoreapi.com/products]{.underline}](https://fakestoreapi.com/products)
+    y hacer uso de axios, fetch o similar para obtener los datos
+
+-   Crear un repositorio en Github para el proyecto donde se pueda
+    descargar una vez realizado.
+

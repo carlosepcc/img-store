@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <div>
-      <img :src="item.image" />
+      <img :src="item.image" :alt="item.category + ' picture'"/>
       <span>{{ item.title }}</span>
       <small>$ {{ item.price }}</small>
     </div>
@@ -26,7 +26,8 @@ const props = defineProps<{ item: Product }>()
 .product {
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: #fff1;
+  box-shadow: 0 0 8px 0 #0001;
   padding: 16px;
   border-radius: 8px;
   width: 100%;

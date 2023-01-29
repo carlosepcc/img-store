@@ -24,14 +24,17 @@ const props = defineProps<{ product: Product }>()
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff;
+  background: #fff1;
   padding: 16px;
   border-radius: 8px;
   max-width: 350px;
+  box-shadow: 0 0 8px 0 #0001;
+  transition: .3s
 }
 
 .product:hover {
-  box-shadow: 1px 0 8px 0 #0001;
+  transform: scale(1.02);
+  box-shadow: 1px 0 12px 0 #0001;
 }
 
 .product img {

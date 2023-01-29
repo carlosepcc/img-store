@@ -4,6 +4,7 @@ import { useCartStore } from "@/stores/cart";
 import ProductCard from "./ProductCard.vue";
 const productStore = useProductStore()
 const cartStore = useCartStore()
+//productStore.refresh()
 </script>
 
 <template>

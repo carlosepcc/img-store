@@ -6,7 +6,7 @@ const cartStore = useCartStore()
 
 <template>
   <main class="main-wrapper">
-    <h3>My <span v-if="cartStore.cart.length === 0">empty</span> cart</h3>
+    <h3>The cart <span v-if="cartStore.cart.length === 0">is empty</span></h3>
     <h5 v-show="cartStore.cart.length > 0"><span>{{ cartStore.cart.length }} item{{
       cartStore.cart.length > 1 ? "s" : ""
     }} –

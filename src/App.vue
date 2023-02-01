@@ -14,9 +14,9 @@ const cart = cartStore.cart
           IMG <small class="font-sans font-thin">store</small></a>
         <div>
           <div class="font-bold flex">
-            <router-link class-active="bg-green-900" to="/about">About</router-link>
+            <router-link to="/about">About</router-link>
             <router-link to="/">Products</router-link>
-            <router-link class="left" :class="cart.length > 0 ? 'animate-pulse' : ''" to="/cart">Cart
+            <router-link class="left" to="/cart">Cart
               <span class="absolute top-1 right-2 flex h-4 w-4" v-show="cartStore.cart.length > 0">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-4 w-4 bg-teal-600 text-xs text-white justify-center">
@@ -45,6 +45,11 @@ header {
   width: 100%;
   top: 0;
   backdrop-filter: blur(8px);
+}
+
+.router-link-active {
+  border-bottom: 3px solid var(--primary);
+  @apply border-b-4 border-green-500
 }
 
 nav {

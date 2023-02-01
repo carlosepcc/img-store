@@ -1,14 +1,14 @@
 <template>
-  <div class="product">
-    <div>
-      <img :src="product.image" />
-      <p />
-      <h5>{{ product.title }}</h5>
-      <p class="description">{{ product.description }}</p>
+  <div class="product flex flex-col bg-solid">
+    <div class="flex flex-col mb-4">
+      <img :src="product.image" class="object-contain p-2 bg-white opacity-80 hover:opacity-100" />
+      <h5 class="text-lg my-4">{{ product.title }}</h5>
+      <p class="description text-justify font-light">{{ product.description }}</p>
     </div>
-    <button class="price" @click="cartStore.addItem(product)"><small>Add to the cart &nbsp; $</small> {{
-      product.price
-    }}</button>
+    <button class="price w-full" @click="cartStore.addItem(product)">
+      <small>$</small> {{ product.price }}
+      <!-- <p><small>Add to cart &nbsp;</small></p> -->
+    </button>
   </div>
 </template>
 
@@ -24,7 +24,6 @@ const props = defineProps<{ product: Product }>()
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff1;
   padding: 16px;
   border-radius: 8px;
   max-width: 350px;
@@ -33,7 +32,7 @@ const props = defineProps<{ product: Product }>()
 }
 
 .product:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   box-shadow: 1px 0 12px 0 #0001;
 }
 
@@ -46,7 +45,7 @@ const props = defineProps<{ product: Product }>()
 
 .product img:hover {
   height: 220px;
-  object-fit:  cover;
+  opacity: none;
 }
 
 .description {

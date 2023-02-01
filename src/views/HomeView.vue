@@ -5,10 +5,7 @@ import ProductsList from "../components/ProductsList.vue";
 
 <template>
   <main class="main-wrapper">
-    <h3>Our products</h3>
+    <h3 class="font-bold text-neutral-500">Our products</h3>
     <ProductsList />
   </main>
 </template>
-<style scoped>
-
-</style>

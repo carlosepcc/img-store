@@ -1,17 +1,26 @@
 @import './base.css';
-@import './pico.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /*CUSTOM CSS*/
+
 .main-wrapper {
   text-align: center;
 }
 .flex{display: flex;}
-
+header nav{
+  background: var(--solid);
+}
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  font-family: Roboto,Sans-serif;
+}
+button {
+  @apply px-4 py-2 rounded bg-teal-600 shadow-sm hover:bg-teal-700 active:bg-teal-800 active:shadow-inner hover:shadow-md
+}
 
-  font-weight: normal;
+.bg-solid {
+  background: var(--solid);
 }
 
 a,

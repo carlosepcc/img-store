@@ -23,7 +23,7 @@ const cart = cartStore.cart
                   {{ cartStore.cart.length }}
                 </span>
               </span>
-              <dialog open v-if="cart.length > 0"
+              <dialog open v-if="cartStore.cart.length > 0"
                 class="shadow-lg rounded flex align-middle p-3 px-5 overflow-hidden top-16 right-2 absolute">
                 <img width="50" class="object-contain" :src="cartStore.cart[cart.length - 1].image" />
                 <!-- <small class="text-neutral-700">{{ cartStore.cart[cart.length - 1].title }}</small> -->

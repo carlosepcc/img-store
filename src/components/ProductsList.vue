@@ -3,7 +3,7 @@
   <div class="py-4 flex flex-col items-center">
     <div v-if="productStore.fetching" class="flex flex-col items-center mb-8">
       <div class="mr-4 my-2 border-r-green-600 bg-[#fff2] text-green-600 border-r-2 rounded-full w-6 h-6 animate-spin">
-        {{ seconds }}
+        O
       </div>
       <div class="font-thin animate-pulse">Updating products list..</div>
 

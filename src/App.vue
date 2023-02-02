@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import { useCartStore } from "./stores/cart";
+import { Icon } from "@iconify/vue"
+import IconLogo from "./components/icons/IconLogo.vue"
+import IconCart from "./components/icons/IconCart.vue"
+import IconCartEmpty from "./components/icons/IconCartEmpty.vue"
+import IconAbout from "./components/icons/IconAbout.vue"
+
+import IconProducts from "./components/icons/IconProducts.vue"
+
 const cartStore = useCartStore()
 const cart = cartStore.cart
 </script>
@@ -8,15 +16,24 @@ const cart = cartStore.cart
 <template>
   <header class="mb-5 z-10 shadow bg-solid fixed">
     <div class="wrapper">
-      <nav class="flex">
-        <a class="text-xl py-3 px-4 font-black text-primary font-serif whitespace-nowrap"
+      <nav class="flex pr-3">
+        <a class="flex items-center text-xl px-4 font-black text-primary font-serif whitespace-nowrap"
           href="https://img-store.surge.sh">
-          IMG <small class="font-sans font-thin">store</small></a>
+          <IconLogo class="mr-3" />
+          <span>IMG<small class="font-sans font-thin">store</small>
+          </span>
+        </a>
         <div>
-          <div class="font-bold flex">
-            <router-link to="/about">About</router-link>
-            <router-link to="/">Products</router-link>
-            <router-link class="left" to="/cart">Cart
+          <div class="font-bold flex items-center">
+            <router-link to="/about">
+              <IconAbout />
+            </router-link>
+            <router-link to="/">
+              <IconProducts />
+            </router-link>
+            <router-link class="left" to="/cart" :title="'$ ' + cartStore.total">
+              <IconCart v-if="cartStore.cart.length > 0" />
+              <IconCartEmpty v-else />
               <span class="absolute top-1 right-2 flex h-4 w-4" v-show="cartStore.cart.length > 0">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-4 w-4 bg-teal-600 text-xs text-white justify-center">
@@ -24,9 +41,18 @@ const cart = cartStore.cart
                 </span>
               </span>
               <dialog open v-if="cartStore.cart.length > 0"
-                class="shadow-lg rounded flex align-middle p-3 px-5 overflow-hidden top-16 right-2 absolute">
-                <img width="50" class="object-contain" :src="cartStore.cart[cart.length - 1].image" />
-                <!-- <small class="text-neutral-700">{{ cartStore.cart[cart.length - 1].title }}</small> -->
+                class="h-100 shadow-lg items-center rounded top-14 absolute bg-solid flex flex-col gap-3 p-2">
+                <div class="w-10 overflow-hidden text-xs whitespace-nowrap text-neutral-300">
+                  <p class="text-center">{{ cartStore.cart.length }} <small>items</small></p>
+                  <p><small>$</small> {{ cartStore.total }}</p>
+                </div>
+                <div class="bottom-14 w-0 h-0 rotate-45 p-1 bg-solid relative"></div>
+                <div class="max-h-96 overflow-y-auto flex flex-col gap-4">
+                  <img v-for="item in cartStore.cart" v-bind:key="item.id" width="40"
+                    class="object-contain bg-grey-100 hover:scale-110 transition-all rounded" :src="item.image"
+                    :title="item.title" />
+                  <!-- <small class="text-neutral-700">{{ cartStore.cart[cart.length - 1].title }}</small> -->
+                </div>
               </dialog>
             </router-link>
           </div>
@@ -47,9 +73,15 @@ header {
   backdrop-filter: blur(8px);
 }
 
+
+
 .router-link-active {
   border-bottom: 3px solid var(--primary);
   @apply border-b-4 border-green-500
+}
+
+.router-link-active dialog {
+  display: none;
 }
 
 nav {

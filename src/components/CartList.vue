@@ -6,9 +6,11 @@ const cartStore = useCartStore()
 </script>
 
 <template>
-    <div class="products-container" v-for="item in cartStore.cart" v-bind:key="item.id">
+  <div class="products-container flex items-center gap-8">
+    <template v-for="item in cartStore.cart" v-bind:key="item.id">
       <CartItem :item="item" />
-    </div>
+    </template>
+  </div>
 </template>
 
 <style scoped>

@@ -1,9 +1,11 @@
 <template>
-  <div class="product flex flex-col bg-solid">
+  <div :title="product.description" class="product w-80 flex flex-col bg-solid">
     <div class="flex flex-col mb-4">
       <img :src="product.image" class="object-contain p-2 bg-white opacity-80 hover:opacity-100" />
-      <h5 class="text-lg my-4">{{ product.title }}</h5>
-      <p class="description text-justify font-light">{{ product.description }}</p>
+     <details class="w-full my-4">
+        <summary title="Click to see description" class="w-full text-lg">{{product.title}}</summary>
+        <p class="h-30 overflow-y-auto text-justify font-light">{{ product.description }}</p>
+      </details>
     </div>
     <button class="price w-full" @click="cartStore.addItem(product)">
       <small>$</small> {{ product.price }}

@@ -4,8 +4,8 @@ import ProductsList from "../components/ProductsList.vue";
 </script>
 
 <template>
-  <main class="main-wrapper">
+  <div class="main-wrapper">
     <h3 class="font-bold text-neutral-500">Our products</h3>
     <ProductsList />
-  </main>
+  </div>
 </template>

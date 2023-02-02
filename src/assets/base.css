@@ -1,6 +1,6 @@
 :root {
   --solid: #fefefe;
-  --color-text:#222;
+  --color-text:#000c;
   --color-background: #eee;
   --primary:dodgerblue;
   --text-pirmary: var(--primary)
@@ -8,7 +8,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --solid:#444;
-    --color-text:#fffe;
+    --color-text:#fffc;
     --color-background: #333;
     --primary:skyblue;
     --text-primary:var(--primary);

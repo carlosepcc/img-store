@@ -5,7 +5,7 @@ const cartStore = useCartStore()
 </script>
 
 <template>
-  <main class="main-wrapper">
+  <div class="main-wrapper">
     <h3>The cart <span v-if="cartStore.cart.length === 0">is empty</span></h3>
     <h5 v-show="cartStore.cart.length > 0"><span>{{ cartStore.cart.length }} item{{
       cartStore.cart.length > 1 ? "s" : ""
@@ -16,7 +16,7 @@ const cartStore = useCartStore()
     </h5>
     <button v-show="cartStore.cart.length > 0" class="pay-btn" @click="cartStore.pay">Pay</button>
     <CartList />
-  </main>
+  </div>
 </template>
 <style scoped>
 .pay-btn {

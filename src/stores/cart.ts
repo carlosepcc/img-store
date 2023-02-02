@@ -28,9 +28,10 @@ export const useCartStore = defineStore("cart", () => {
   function calculateTotal() {
     let total = 0
     rawItems.value.forEach(item => {
-      total += item.price
+      total += item.price;
     });
-    return total
+    return Math.round((total + Number.EPSILON) * 100) / 100;
+
   }
   const total = computed(() => calculateTotal())
   return { pay, cart: rawItems, total, addItem, removeItemByIndex, removeItem };

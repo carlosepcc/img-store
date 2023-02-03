@@ -24,7 +24,7 @@
         <p class="h-30 overflow-y-auto text-justify font-light">{{ product.description }}</p>
       </details>
     </div>
-    <button class="w-full flex justify-between" @click="cartStore.addItem(product)"
+    <button class="btn-primary w-full flex justify-between text-[#fffe]" @click="cartStore.addItem(product)"
       :title="'Add to cart one ' + product.title">
       <span class="font-bold"><small class="text-[#fffa]">$</small> {{ product.price }}</span>
       <IconAddToCart class="text-2xl" />

@@ -23,7 +23,7 @@ const cart = cartStore.cart
           </span>
         </a>
         <div>
-          <div class="font-bold text-xl flex items-center">
+          <div class="font-bold text-2xl flex items-center">
             <router-link to="/about">
               <IconAbout />
             </router-link>
@@ -41,7 +41,7 @@ const cart = cartStore.cart
               </span>
               <dialog open v-if="cartStore.cart.length > 0"
                 class="h-100 shadow-lg items-center rounded top-14 absolute bg-solid flex flex-col gap-3 p-2">
-                <div class="w-10 overflow-hidden text-xs whitespace-nowrap text-neutral-300">
+                <div class="w-10 overflow-hidden text-xs whitespace-nowrap">
                   <p class="text-center">{{ cartStore.cart.length }} <small>items</small></p>
                   <p><small>$</small> {{ cartStore.total }}</p>
                 </div>

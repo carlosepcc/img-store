@@ -19,7 +19,7 @@ header nav{
   font-family: Roboto,Sans-serif;
 }
 button {
-  @apply px-4 py-2 rounded bg-teal-600 shadow-sm hover:bg-teal-700 active:bg-teal-800 active:shadow-inner hover:shadow-md
+  @apply border-b-2 border-b-green-900 px-4 py-2 rounded transition-all bg-green-600 shadow-sm hover:bg-green-700 active:bg-green-800 hover:border-b-4 active:border-b-0 active:shadow-inner hover:shadow-md
 }
 
 .bg-solid {

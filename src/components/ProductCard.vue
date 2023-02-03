@@ -2,8 +2,25 @@
   <div :title="product.description" class="product w-80 flex flex-col bg-solid">
     <div class="flex flex-col mb-4">
       <img :src="product.image" class="object-contain p-2 bg-white opacity-80 hover:opacity-100" />
+      <small class="font-thin text-end">{{ product.category }}</small>
+      <div class="my-3 flex gap-4 items-center">
+        <p class="ml-2 text-sm font-bold text-gray-900 dark:text-white">{{ product.rating.rate }}</p>
+        <div class="flex">
+          <svg v-for="star in Math.round(product.rating.rate)" aria-hidden="true" class="w-5 h-5 text-yellow-400"
+            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Rating star</title>
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+            </path>
+          </svg>
+        </div>
+        <p class="text-sm font-medium">{{ product.rating.count }}
+          reviews</p>
+
+      </div>
+
       <details class="w-full my-4">
-        <summary title="Click to see description" class="w-full text-lg">{{ product.title }}</summary>
+        <summary title="Click to see the description" class="w-full text-sm">{{ product.title }}</summary>
         <p class="h-30 overflow-y-auto text-justify font-light">{{ product.description }}</p>
       </details>
     </div>

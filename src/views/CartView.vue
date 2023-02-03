@@ -8,12 +8,14 @@ const cartStore = useCartStore()
   <div class="main-wrapper">
     <h3 class="mb-2">The cart <span v-if="cartStore.cart.length === 0">is empty</span>
     </h3>
-    <small v-if="cartStore.cart.length > 0">{{
+
+    <button v-show="cartStore.cart.length > 0" class="w-full max-w-md mt-3" @click="cartStore.pay">
+      Pay <b class="ml-2">$ {{ cartStore.total }}</b>
+    </button>
+    <hr class="border-gray-700 mb-4" />
+    <small class="font-thin" v-if="cartStore.cart.length > 0">{{
       cartStore.cart.length
     }} {{ cartStore.cart.length < 2 ? ' item' : ' items' }}</small>
-        <button v-show="cartStore.cart.length > 0" class="w-full mt-3" @click="cartStore.pay">
-          Pay <b class="ml-2">$ {{ cartStore.total }}</b>
-        </button>
         <CartList />
   </div>
 </template>

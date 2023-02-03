@@ -24,7 +24,7 @@ const cart = cartStore.cart
           </span>
         </a>
         <div>
-          <div class="font-bold flex items-center">
+          <div class="font-bold text-xl flex items-center">
             <router-link to="/about">
               <IconAbout />
             </router-link>

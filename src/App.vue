@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import { useCartStore } from "./stores/cart";
-import { Icon } from "@iconify/vue"
 import IconLogo from "./components/icons/IconLogo.vue"
 import IconCart from "./components/icons/IconCart.vue"
 import IconCartEmpty from "./components/icons/IconCartEmpty.vue"

@@ -11,9 +11,7 @@ main{
   text-align: center;
 }
 .flex{display: flex;}
-header nav{
-  background: var(--solid);
-}
+
 #app {
   margin: 0 auto;
   font-family: Roboto,Sans-serif;

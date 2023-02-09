@@ -13,9 +13,9 @@ const cart = cartStore.cart
 </script>
 
 <template>
-  <header class="mb-5 z-10 shadow bg-solid fixed">
+  <header class="mb-5 z-10 shadow fixed">
     <div class="wrapper">
-      <nav class="flex pr-3">
+      <nav class="flex pr-3 backdrop-blur">
         <a class="flex items-center text-xl px-4 font-black text-primary font-serif whitespace-nowrap"
           href="https://img-store.surge.sh">
           <IconLogo class="mr-3" />
@@ -60,9 +60,11 @@ const cart = cartStore.cart
     </div>
   </header>
   <main class="p-9 pt-20 h-screen overflow-auto">
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </main>
 </template>
 <style>
@@ -73,6 +75,27 @@ header {
 }
 
 
+nav a:first-child:hover,
+.router-link-exact-active:first-child {
+  background: linear-gradient(transparent 50%, #44f2);
+}
+
+nav a:hover {
+  transition: 1.5s;
+  border-radius: 16px;
+}
+
+nav a:hover,
+.router-link-exact-active {
+  background: linear-gradient(transparent 50%, #fa42);
+
+}
+
+nav a:last-child:hover,
+.router-link-exact-active:last-child {
+  background: linear-gradient(transparent 50%, #4fa2);
+
+}
 
 .router-link-active {
   border-bottom: 3px solid var(--primary);
@@ -87,7 +110,43 @@ nav {
   display: flex;
   justify-content: space-between;
   column-gap: 32px;
+  background: #333a;
 
+}
+
+header nav {
+  backdrop-filter: blur(60px);
+  box-shadow: 0 -6px 5px -6px #fff2 inset;
+  /*background: var(--solid);*/
+}
+
+.router-link-exact-active {
+  border: none;
+  box-shadow: 0 -6px 5px -6px #fa4c inset;
+}
+
+.router-link-exact-active svg path {
+  stroke: #fa43;
+  stroke-width: 4px;
+  stroke-linejoin: miter;
+}
+
+.router-link-exact-active:first-child {
+  box-shadow: 0 -6px 5px -6px #4afc inset;
+
+}
+
+.router-link-exact-active:first-child svg path {
+  stroke: #4af3;
+}
+
+.router-link-exact-active:last-child {
+  box-shadow: 0 -6px 5px -6px #afac inset;
+
+}
+
+.router-link-exact-active:last-child svg path {
+  stroke: #afa3;
 }
 
 nav>div {
@@ -100,7 +159,7 @@ nav>div>div>* {
 }
 
 .left {
-  padding-right: 24px;
+  margin-right: 24px;
 }
 
 .badge {

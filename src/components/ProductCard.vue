@@ -1,5 +1,5 @@
 <template>
-  <div :title="product.description" class="product w-80 flex flex-col bg-solid">
+  <div :title="product.description" class="product w-80 flex flex-col bg-solid ">
     <div class="flex flex-col mb-4">
       <img :src="product.image" class="object-contain p-2 bg-white opacity-80 hover:opacity-100" />
       <small class="font-thin text-end">{{ product.category }}</small>
